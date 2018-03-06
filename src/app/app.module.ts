@@ -3,12 +3,15 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NotesService } from "../services/notes.service";
 import { DatailPage } from "../pages/datail/datail";
 import { AboutPage } from "../pages/about/about";
+import { NotificationsPage } from "../pages/notifications/notifications"
+import { ReportesPage } from "../pages/reportes/reportes";
 
 //librerias para firebase
 import { AngularFireModule } from 'angularfire2';
@@ -28,10 +31,13 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     DatailPage,
-    AboutPage
+    AboutPage,
+    NotificationsPage,
+    ReportesPage
   ],
   imports: [
     BrowserModule,
+    //BrowserAnimationsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
@@ -42,7 +48,9 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     DatailPage,
-    AboutPage
+    AboutPage,
+    NotificationsPage,
+    ReportesPage
   ],
   providers: [
     StatusBar,

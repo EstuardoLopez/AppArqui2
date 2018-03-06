@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { NotesService } from "../../services/notes.service";
 import { DatailPage } from "../datail/datail";
 import { AboutPage } from '../about/about';
+import { NotificationsPage } from '../notifications/notifications';
+import { ReportesPage } from '../reportes/reportes';
 
 @Component({
   selector: 'page-home',
@@ -31,8 +33,16 @@ export class HomePage {
   /**
    * viewAbout
    */
-  public viewAbout() {
-    this.navCtrl.push(AboutPage)
+  public goToAbout() {
+    this.navCtrl.push(AboutPage);
+  }
+
+  public goToNotification(){
+    this.navCtrl.push(NotificationsPage);
+  }
+
+  public goToReportes(){
+    this.navCtrl.push(ReportesPage);
   }
 
 }
