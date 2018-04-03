@@ -12,6 +12,7 @@ import { DatailPage } from "../pages/datail/datail";
 import { AboutPage } from "../pages/about/about";
 import { NotificationsPage } from "../pages/notifications/notifications"
 import { ReportesPage } from "../pages/reportes/reportes";
+import { CurrentClimatePage } from "../pages/current-climate/current-climate";
 
 //librerias para firebase
 import { AngularFireModule } from 'angularfire2';
@@ -33,7 +34,8 @@ export const firebaseConfig = {
     DatailPage,
     AboutPage,
     NotificationsPage,
-    ReportesPage
+    ReportesPage,
+    CurrentClimatePage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ export const firebaseConfig = {
     DatailPage,
     AboutPage,
     NotificationsPage,
-    ReportesPage
+    ReportesPage,
+    CurrentClimatePage
   ],
   providers: [
     StatusBar,

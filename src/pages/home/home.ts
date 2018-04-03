@@ -5,6 +5,7 @@ import { DatailPage } from "../datail/datail";
 import { AboutPage } from '../about/about';
 import { NotificationsPage } from '../notifications/notifications';
 import { ReportesPage } from '../reportes/reportes';
+import { CurrentClimatePage } from '../current-climate/current-climate';
 
 @Component({
   selector: 'page-home',
@@ -43,6 +44,10 @@ export class HomePage {
 
   public goToReportes(){
     this.navCtrl.push(ReportesPage);
+  }
+
+  public goToCurrentClimate() {
+    this.navCtrl.push(CurrentClimatePage);
   }
 
 }

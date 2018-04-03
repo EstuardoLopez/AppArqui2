@@ -6,15 +6,21 @@ import { AngularFireDatabase } from "angularfire2/database/database";
 export class NotesService {
     notes = [];
     loader = null;
-
+    Mediciones = { temperatura: null, humedad: null, luminosidad: null, presion: null };
     constructor(public toastCtrl: ToastController, public afDB: AngularFireDatabase, public loadingCtrl: LoadingController) {
-        
+
     }
 
     public getNotes() {
         //return this.notes;
         this.showLoading();
         return this.afDB.list<Item>('estacion/');
+        
+    }
+
+    public getFirstElement() {
+        this.showLoading();
+        return this.afDB.list<Item>('estacion/', ref => ref.limitToFirst(1));
     }
 
     public getNote(id){
@@ -55,4 +61,5 @@ export class NotesService {
     public hideLoading(){
         this.loader.dismiss();
     }
+
 }
