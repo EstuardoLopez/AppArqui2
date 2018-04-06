@@ -6,6 +6,9 @@ import { AboutPage } from '../about/about';
 import { NotificationsPage } from '../notifications/notifications';
 import { ReportesPage } from '../reportes/reportes';
 import { CurrentClimatePage } from '../current-climate/current-climate';
+import {LoginPage} from '../login/login'
+import {SingletonService} from '../../services/SingletonService'
+import { LoginPageModule } from '../login/login.module';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +17,9 @@ import { CurrentClimatePage } from '../current-climate/current-climate';
 export class HomePage {
   notes = [];
   @ViewChild('myNav') nav: NavController;
-  constructor(public navCtrl: NavController, public NotesService:NotesService) {
+  constructor(public navCtrl: NavController, 
+              public NotesService:NotesService,
+              public singleton:SingletonService) {
     /*
     NotesService.getNotes().valueChanges().subscribe(nota => {
       this.notes = nota;
@@ -49,5 +54,12 @@ export class HomePage {
   public goToCurrentClimate() {
     this.navCtrl.push(CurrentClimatePage);
   }
-
+  
+  public goToExit() {
+    console.log(this.singleton.loginEmail);
+    this.singleton.loginState = false;
+    this.singleton.loginEmail = '';
+    this.navCtrl.push(LoginPage);
+  }
+  
 }
