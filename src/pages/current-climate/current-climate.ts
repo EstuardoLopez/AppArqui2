@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NotesService } from '../../services/notes.service';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CurrentClimatePage page.
@@ -80,6 +81,10 @@ export class CurrentClimatePage {
     var mes = (dt.getMonth() + 1) < 10 ? '0' + (dt.getMonth()+1)  : (dt.getMonth() + 1)
     this.myDate = day + '/' + mes + '/' + dt.getFullYear();
     console.log(this.myDate);
+  }
+
+  public goToBack() {
+    this.navCtrl.pop();
   }
 
 }
