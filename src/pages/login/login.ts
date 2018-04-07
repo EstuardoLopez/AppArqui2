@@ -6,7 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 //import {User} from '../../services/user'
 import {SingletonService} from '../../services/SingletonService'
 //import { Facebook , FacebookLoginResponse } from '@ionic-native/facebook'
-import firebase from 'firebase';
+//import firebase from 'firebase';
 /**import { AngularFireAuth } from 'angularfire2/auth';
  * Generated class for the LoginPage page.
  *

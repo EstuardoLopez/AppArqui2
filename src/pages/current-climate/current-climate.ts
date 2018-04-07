@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NotesService } from '../../services/notes.service';
-import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CurrentClimatePage page.
