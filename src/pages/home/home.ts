@@ -6,9 +6,8 @@ import { AboutPage } from '../about/about';
 import { NotificationsPage } from '../notifications/notifications';
 import { ReportesPage } from '../reportes/reportes';
 import { CurrentClimatePage } from '../current-climate/current-climate';
-import {LoginPage} from '../login/login'
-import {SingletonService} from '../../services/SingletonService'
-import { LoginPageModule } from '../login/login.module';
+import {LoginPage} from '../login/login';
+import {SingletonService} from '../../services/SingletonService';
 
 @Component({
   selector: 'page-home',
