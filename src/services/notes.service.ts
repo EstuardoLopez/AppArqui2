@@ -14,7 +14,7 @@ export class NotesService {
     public getNotes() {
         //return this.notes;
         this.showLoading();
-        return this.afDB.list<Item>('estacion/');
+        return this.afDB.list<Item>('estacion/', ref => ref.limitToLast(100));
         
     }
 

@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding text-center>
   <ion-card>
     <img src={{pathImage}} />
     <ion-card-content>
@@ -34,5 +34,10 @@
       </p>
     </ion-card-content>
   </ion-card>
+
+  <button ion-button icon-left round outline color="light" (click)="goToBack()" class="button" >
+    <ion-icon class="bigIcons" name="md-exit"></ion-icon>
+    <div class="valueButton">Regresar</div>
+  </button>
 
 </ion-content>

@@ -13,22 +13,36 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content text-center>
   <ion-list>
   
     <ion-item>
-      <ion-label floating>Titulo</ion-label>
-      <ion-input type="text" [(ngModel)]="note.title"></ion-input>
+      <ion-label floating>Index</ion-label>
+      <ion-input type="text" [(ngModel)]="registro.index"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label floating>Descripcion</ion-label>
-      <ion-textarea [(ngModel)]="note.description"></ion-textarea>
+      <ion-label floating>Temperatura</ion-label>
+      <ion-textarea [(ngModel)]="registro.temperatura"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Humedad</ion-label>
+      <ion-textarea [(ngModel)]="registro.humedad"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Luminosidad</ion-label>
+      <ion-textarea [(ngModel)]="registro.luminosidad"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Presion</ion-label>
+      <ion-textarea [(ngModel)]="registro.presion"></ion-textarea>
     </ion-item>
 
     <div padding>
-      <button ion-button block (click)="addNote()">Guardar</button>
-      <button *ngIf="id !=0" ion-button block (click)="deleteNote()" color="danger">Eliminar nota</button>
+      <button ion-button icon-left round outline color="light" (click)="goToBack()" class="button">
+        <ion-icon class="bigIcons" name="md-exit"></ion-icon>
+        <div class="valueButton">Regresar</div>
+      </button>
     </div>
   
   </ion-list>

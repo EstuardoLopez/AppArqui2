@@ -15,7 +15,7 @@ import { ReportesPage } from "../pages/reportes/reportes";
 import { CurrentClimatePage } from "../pages/current-climate/current-climate";
 import {LoginPage} from '../pages/login/login'
 import {MomentDayPage} from '../pages/moment-day/moment-day'
-
+import { HistoryPage } from "../pages/history/history";
 
 //librerias para firebase
 import { AngularFireModule } from 'angularfire2';
@@ -40,7 +40,8 @@ export const firebaseConfig = {
     AboutPage,
     NotificationsPage,
     ReportesPage,
-    CurrentClimatePage
+    CurrentClimatePage,
+    HistoryPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,8 @@ export const firebaseConfig = {
     AboutPage,
     NotificationsPage,
     ReportesPage,
-    CurrentClimatePage
+    CurrentClimatePage,
+    HistoryPage
   ],
   providers: [
     StatusBar,
