@@ -8,6 +8,7 @@ import { ReportesPage } from '../reportes/reportes';
 import { CurrentClimatePage } from '../current-climate/current-climate';
 import {LoginPage} from '../login/login';
 import {SingletonService} from '../../services/SingletonService';
+import { MomentDayPage } from '../moment-day/moment-day';
 
 @Component({
   selector: 'page-home',

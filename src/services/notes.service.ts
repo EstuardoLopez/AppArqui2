@@ -20,7 +20,7 @@ export class NotesService {
 
     public getFirstElement() {
         this.showLoading();
-        return this.afDB.list<Item>('estacion/', ref => ref.limitToFirst(1));
+        return this.afDB.list<Item>('estacion/', ref => ref.limitToLast(1));
     }
 
     public getNote(id){

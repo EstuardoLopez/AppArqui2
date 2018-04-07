@@ -5,7 +5,7 @@ import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 //import {User} from '../../services/user'
 import {SingletonService} from '../../services/SingletonService'
-import { Facebook , FacebookLoginResponse } from '@ionic-native/facebook'
+//import { Facebook , FacebookLoginResponse } from '@ionic-native/facebook'
 import firebase from 'firebase';
 /**import { AngularFireAuth } from 'angularfire2/auth';
  * Generated class for the LoginPage page.
@@ -25,8 +25,9 @@ export class LoginPage {
               public navParams: NavParams, 
               private afAuth: AngularFireAuth,
               public alertCtrl: AlertController,
-              public singleton:SingletonService,
-              private facebook: Facebook) {
+              public singleton:SingletonService//,
+              //private facebook: Facebook
+            ) {
   }
   userData: any;
   public username = "";

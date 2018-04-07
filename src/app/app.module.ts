@@ -67,8 +67,7 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NotesService,
-    SingletonService,
-    Facebook
+    SingletonService
   ]
 })
 export class AppModule {}

@@ -18,7 +18,7 @@ import { NotesService } from '../../services/notes.service';
 
 export class MomentDayPage {
   public Mediciones = {temperatura:null, humedad:null, luminosidad:null, presion:null};
-  public image = 'assets/img/day.jpg'; 
+  public image = 'img/day.jpg'; 
   public time = 'día'; 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -46,13 +46,13 @@ export class MomentDayPage {
                   }
                   if (this.Mediciones.luminosidad >= 0 && this.Mediciones.luminosidad < 10) {
                     this.time= 'noche'; 
-                    this.image = 'assets/img/nig.jpeg'; 
+                    this.image = 'img/nig.jpg'; 
                   } else if (this.Mediciones.luminosidad >= 10 && this.Mediciones.luminosidad < 50) {
                     this.time= 'amanecer'; 
-                    this.image = 'assets/img/man.jpeg'; 
+                    this.image = 'img/man.jpeg'; 
                   } else if (this.Mediciones.luminosidad >= 50) {
                     this.time= 'dia'; 
-                    this.image = 'assets/img/day.jpeg'; 
+                    this.image = 'img/day.jpg'; 
                   }
                   console.log("medidas: ", this.Mediciones);
                  
