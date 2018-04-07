@@ -9,7 +9,7 @@ import { CurrentClimatePage } from '../current-climate/current-climate';
 import {LoginPage} from '../login/login'
 import {SingletonService} from '../../services/SingletonService'
 import { LoginPageModule } from '../login/login.module';
-
+import {MomentDayPage} from '../moment-day/moment-day'
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -35,6 +35,11 @@ export class HomePage {
   public createNote() {
     this.navCtrl.push(DatailPage, { id: 0 })
   }
+  
+  public momentDay(){
+    this.navCtrl.push(MomentDayPage);
+  }
+
 
   /**
    * viewAbout
