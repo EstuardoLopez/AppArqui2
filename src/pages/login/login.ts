@@ -5,6 +5,8 @@ import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 //import {User} from '../../services/user'
 import {SingletonService} from '../../services/SingletonService'
+import { Facebook , FacebookLoginResponse } from '@ionic-native/facebook'
+import firebase from 'firebase';
 /**import { AngularFireAuth } from 'angularfire2/auth';
  * Generated class for the LoginPage page.
  *
@@ -23,12 +25,14 @@ export class LoginPage {
               public navParams: NavParams, 
               private afAuth: AngularFireAuth,
               public alertCtrl: AlertController,
-              public singleton:SingletonService) {
+              public singleton:SingletonService,
+              private facebook: Facebook) {
   }
-
+  userData: any;
   public username = "";
   public password = "";  
   async toAccess(){
+    /*
     if(this.username!="" && this.password!="" ){
       try {
         const result = await this.afAuth.auth.signInWithEmailAndPassword(this.username,this.password);
@@ -46,7 +50,8 @@ export class LoginPage {
     }else{
       this.showAlert();
     }
-    
+    */
+   this.navCtrl.push(HomePage);
     }
 
     async toRegister() {
@@ -61,6 +66,7 @@ export class LoginPage {
         }
       } catch (e) {
         console.error(e);
+        this.showAlertIncorrect2();
       }
     }
 
@@ -95,6 +101,15 @@ export class LoginPage {
     });
     alert.present();
   }
-
+  showAlertIncorrect2() {
+    let alert = this.alertCtrl.create({
+      title: 'Ups ocurrió un error al registrar',
+      subTitle: 'Ingresa tu correo valido y contraseña de 6 digitos para registrarte',
+      buttons: ['Aceptar']
+    });
+    alert.present();
+  }
+   
+  }
   
-}
+

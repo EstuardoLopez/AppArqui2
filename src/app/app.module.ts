@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import {SingletonService} from '../services/SingletonService'
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NotesService } from "../services/notes.service";
@@ -15,6 +14,9 @@ import { NotificationsPage } from "../pages/notifications/notifications"
 import { ReportesPage } from "../pages/reportes/reportes";
 import { CurrentClimatePage } from "../pages/current-climate/current-climate";
 import {LoginPage} from '../pages/login/login'
+import {MomentDayPage} from '../pages/moment-day/moment-day'
+
+
 //librerias para firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -34,6 +36,7 @@ export const firebaseConfig = {
     HomePage,
     DatailPage,
     LoginPage,
+    MomentDayPage,
     AboutPage,
     NotificationsPage,
     ReportesPage,
@@ -53,6 +56,7 @@ export const firebaseConfig = {
     HomePage,
     DatailPage,
     LoginPage,
+    MomentDayPage,
     AboutPage,
     NotificationsPage,
     ReportesPage,
@@ -63,7 +67,8 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NotesService,
-    SingletonService
+    SingletonService,
+    Facebook
   ]
 })
 export class AppModule {}
