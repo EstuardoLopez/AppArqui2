@@ -7,25 +7,47 @@
 <ion-header>
 
   <ion-navbar color="dark">
-    <ion-title>Notifications2</ion-title>
+    <ion-title>Dispositivo</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding text-center >
+
+    <ion-card>
+
+        <ion-card-header>
+          <ion-item>
+            <ion-label>Enceder o apagar dispositivo</ion-label>
+            <ion-toggle [(ngModel)]="isToggled" (ionChange)="notify()"></ion-toggle>
+          </ion-item>
+        </ion-card-header>
+    
+        <ion-card-content disable>
+          <p>Cuando el dispositivo se encuentra apagado no podra revisar el estado actual del clima</p>
+        </ion-card-content>
+    
+    </ion-card>
   <ion-card>
 
     <ion-card-header>
+        <ion-label>Tiempo entre actualizaciones</ion-label>
       <ion-item>
-        <ion-label>Activar notificaciones</ion-label>
-        <ion-toggle checked></ion-toggle>
+          <ion-label>Segundos</ion-label>
+        <ion-input [(ngModel)]="timeDe" type="number" placeholder="Number Input with no label"></ion-input>
       </ion-item>
     </ion-card-header>
-
     <ion-card-content disable>
-      <p>Cuando las notificaciones esten activadas la aplicacion informara constantemente la situacion del clima</p>
-    </ion-card-content>
-
+        <button icon-left  ion-button round class="button" (click)="toChange()">
+            <ion-icon class="bigIcons" name="ios-settings-outline"></ion-icon>
+            <div class="valueButton">Guardar configuración</div>
+        </button>
+     </ion-card-content>
   </ion-card>
+
+  <button ion-button icon-left round outline color="light" (click)="goToBack()" class="button">
+    <ion-icon class="bigIcons" name="md-exit"></ion-icon>
+    <div class="valueButton">Regresar</div>
+  </button>
 </ion-content>

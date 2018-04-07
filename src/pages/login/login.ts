@@ -33,7 +33,7 @@ export class LoginPage {
   public username = "";
   public password = "";  
   async toAccess(){
-    /*
+    
     if(this.username!="" && this.password!="" ){
       try {
         const result = await this.afAuth.auth.signInWithEmailAndPassword(this.username,this.password);
@@ -51,8 +51,8 @@ export class LoginPage {
     }else{
       this.showAlert();
     }
-    */
-   this.navCtrl.push(HomePage);
+    
+  // this.navCtrl.push(HomePage);
     }
 
     async toRegister() {

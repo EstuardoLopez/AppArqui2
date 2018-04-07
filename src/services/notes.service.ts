@@ -62,4 +62,12 @@ export class NotesService {
         this.loader.dismiss();
     }
 
+    public setTimeDelay(val){
+        this.afDB.database.ref('timeDelay').set(val);
+     }
+
+     public setState(val){
+        this.afDB.database.ref('estado').set(val);
+     }
+
 }

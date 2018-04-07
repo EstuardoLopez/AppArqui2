@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {HomePage} from '../../pages/home/home'
 /**
  * Generated class for the AboutPage page.
  *
@@ -20,6 +20,9 @@ export class AboutPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutPage');
+  }
+  public goToBack() {
+    this.navCtrl.push(HomePage);
   }
 
 }

@@ -14,29 +14,44 @@
 
 
 <ion-content padding text-center >
-  <div class="information">
-    <h3 class="golden">Desarrolladores:</h3>
-    <p>
-      Estuardo Lopez - 201000000 <br>
-      Gilberto Rosales - 201000000 <br>
-      Jorge Veliz - 201000000 <br>
-      Luis Javier - 201000000 <br>
-      Quique Mazariegos - 201000000 <br>
-      Rodolfo Garcia - 201000000 <br>
-    </p>
-  </div>
-  <div class="information mision">
-    <p>
-      Esta app ayudara a muchas personas a poder predecir con mucho exito el clima, la app sera totalmente gratuita
-      y esta enfocada para un ambiente urbano.
-    </p>
-  </div>
+    <div class="information">
+        <h3 class="golden">Introduccion:</h3>
+      <p>
+          La siguiente plataforma  andorid conectado a firebase para un manejo de las funciones del dispositivo meteorológico para poseer una base de datos de fácil manipulación para las
+      </p>
+    </div>
+
+    <div class="information">
+        <h3 class="golden">Diferecias:</h3>
+      <p>
+          <b>Mostrar temperatura:</b>  El usuario tendrá acceso a ver la temperatura en el momento que el desee ya que la base de datos estará actualizada a cada cambio que se perciba en la estación meteorológica.
+          <br><b>Cambio de datos entre mediciones:</b> Se proveerá de un informe de cada cuanto tiempo cambia la temperatura para futuros análisis estadístico.
+          <br><b>Control total del dispositivo:</b> Encender o apagar su dispositivo desde cualquier parte que disponga de internet          
+        </p>
+    </div>
+
 
   <div class="information vision">
     <p>
-      Esta app ayudara a muchas personas a poder predecir con mucho exito el clima, la app sera totalmente gratuita
-      y esta enfocada para un ambiente urbano.
+      <iframe src="https://www.youtube.com/embed/-b9esaU4smE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </p>
   </div>
+
+  <div class="information">
+      <h3 class="golden">Desarrolladores:</h3>
+      <p>
+        Estuardo Lopez - 201000000 <br>
+        Gilberto Rosales - 201000000 <br>
+        Jorge Veliz - 201000000 <br>
+        Luis Javier - 201000000 <br>
+        Quique Mazariegos - 201000000 <br>
+        Rodolfo Garcia - 201000000 <br>
+      </p>
+    </div>
+
+    <button ion-button icon-left round outline color="light" (click)="goToBack()" class="button">
+        <ion-icon class="bigIcons" name="md-exit"></ion-icon>
+        <div class="valueButton">Regresar</div>
+      </button>
 
 </ion-content>
