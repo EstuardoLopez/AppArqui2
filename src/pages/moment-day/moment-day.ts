@@ -37,11 +37,25 @@ export class MomentDayPage {
 		console.log('datos Anterores: ', this.datosAnt);
 		console.log('datos Actuales:', this.datos);
 		
-		if(this.datosAnt != null){
+		if(this.datosAnt != null && this.datos != null){
 			if(this.datosAnt[0] !=0 && this.datos[0]==0){
 				//escribo nodito #1
 				console.log('Escribo nodo1');
 				NotesService.createNodo(1);
+				//NotesService.deleteNodo(1);
+			}
+
+			if (this.datosAnt[1] != 0 && this.datos[1] == 0) {
+				//escribo nodito #1
+				console.log('Escribo nodo2');
+				NotesService.createNodo(2);
+				//NotesService.deleteNodo(2);
+			}
+
+			if (this.datosAnt[2] < 32 && this.datos[2] >= 32) {
+				//escribo nodito #1
+				console.log('Escribo nodo3');
+				NotesService.createNodo(3);
 				//NotesService.deleteNodo(1);
 			}
 
@@ -62,10 +76,16 @@ export class MomentDayPage {
 				//escribo nodito #1
 				console.log('Borro nodo2');
 				NotesService.deleteNodo(2);
-			}
+			}	
 			
-		}  
-  }
+			if (this.datosAnt[2] >= 0 && this.datos[2] < 0) {
+				//escribo nodito #1
+				console.log('Borro nodo3');
+				NotesService.deleteNodo(3);
+				//NotesService.deleteNodo(2);
+			}
+		}
+  	}
 
 	public doRefresh(refresher) {
 		refresher.complete();

@@ -48,14 +48,20 @@ export class HomePage {
         datos.push(Number(medida[0]["p2"]));
         datosT.push(Number(medida[0]["temperatura"]));
         datosAnt = null;
-      }else{
+      } else if (medida.length > 1){
         datos.push(Number(medida[1]["p1"]));
         datos.push(Number(medida[1]["p2"]));
+        datos.push(Number(medida[1]["temperatura"]));
         datosT.push(Number(medida[1]["temperatura"]));
         datosAnt.push(Number(medida[0]["p1"]));
         datosAnt.push(Number(medida[0]["p2"]));
+        datosAnt.push(Number(medida[0]["temperatura"]));
         console.log(datos);
         console.log(datosAnt);
+      }else{
+        datos = null;
+        datosT = null;
+        datosAnt = null;
       }
       
       this.navCtrl.push(MomentDayPage, { datos: datos, datosT: datosT, datosAnt: datosAnt })
