@@ -7,35 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Detalle de nota</ion-title>
+    <ion-title>Detalle de registro</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content text-center>
-  <ion-list>
-  
+  <ion-list> 
     <ion-item>
-      <ion-label floating>Index</ion-label>
-      <ion-input type="text" [(ngModel)]="registro.index"></ion-input>
+      <ion-label floating>Producto #1</ion-label>
+      <ion-textarea [(ngModel)]="registro.p1"></ion-textarea>
     </ion-item>
-  
+    <ion-item>
+      <ion-label floating>Producto #2</ion-label>
+      <ion-textarea [(ngModel)]="registro.p2"></ion-textarea>
+    </ion-item>
     <ion-item>
       <ion-label floating>Temperatura</ion-label>
       <ion-textarea [(ngModel)]="registro.temperatura"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Humedad</ion-label>
-      <ion-textarea [(ngModel)]="registro.humedad"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Luminosidad</ion-label>
-      <ion-textarea [(ngModel)]="registro.luminosidad"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Presion</ion-label>
-      <ion-textarea [(ngModel)]="registro.presion"></ion-textarea>
     </ion-item>
 
     <div padding>

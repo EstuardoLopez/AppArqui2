@@ -17,7 +17,6 @@ import { HistoryPage } from '../history/history';
 })
 export class HomePage {
   notes = [];
-  @ViewChild('myNav') nav: NavController;
   constructor(public navCtrl: NavController, 
               public NotesService:NotesService,
               public singleton:SingletonService) {
@@ -38,7 +37,15 @@ export class HomePage {
   }
   
   public momentDay(){
-    this.navCtrl.push(MomentDayPage);
+    let datos = [];
+    let datosT =[];
+    this.NotesService.getFirstElement().valueChanges().subscribe(medida => {
+      datos.push(Number(medida[0]["p1"]));
+      datos.push(Number(medida[0]["p2"]));
+      datosT.push(Number(medida[0]["temperatura"]));
+      console.log(datos);     
+		  this.navCtrl.push(MomentDayPage, { datos: datos, datosT:datosT});
+    });    
   }
 
 
@@ -50,7 +57,7 @@ export class HomePage {
   }
 
   public goToNotification(){
-    this.navCtrl.push(NotificationsPage);
+    this.navCtrl.push(NotificationsPage); 
   }
 
   public goToReportes(){

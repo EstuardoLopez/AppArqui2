@@ -11,79 +11,42 @@ import { NotesService } from '../../services/notes.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-current-climate',
-  templateUrl: 'current-climate.html',
+	selector: 'page-current-climate',
+	templateUrl: 'current-climate.html',
 })
 export class CurrentClimatePage {
-  public pathImage = "";
-  public Mediciones = {temperatura:null, humedad:null, luminosidad:null, presion:null};
-  public myDate = "18/03/2018";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public NotesService: NotesService) {
-    //console.log(this.myDate);
-    this.getDate();
-    this.pathImage = "img/Soleado.png";
-    
-    NotesService.getFirstElement().valueChanges().subscribe(medida => {
-      this.NotesService.hideLoading();
-      for(var i in medida[0]){
-        switch (i) {
-          case "humidity":
-            this.Mediciones.humedad = medida[0][i];
-            break;
-          case "iluminacion":
-            this.Mediciones.luminosidad = medida[0][i];
-            break;
-          case "pressure":
-            this.Mediciones.presion = medida[0][i];
-            break;
-          case "temperature1":
-            this.Mediciones.temperatura = medida[0][i];
-            break;        
-          default:
-            break;
-        }
-      }
+	public myDate = "18/03/2018";
+	public p1 =0;
+	public p2 = 0;
+	public temperatura = 0;
 
-      console.log("medidas: ", this.Mediciones);
-      
-      if (this.Mediciones.temperatura >= 0 && this.Mediciones.temperatura < 10) {
-        this.pathImage = "img/Lluvioso.jpg";
-      } else if (this.Mediciones.temperatura >= 10 && this.Mediciones.temperatura < 20) {
-        this.pathImage = "img/Nublado.gif";
-      } else if (this.Mediciones.temperatura >= 20) {
-        this.pathImage = "img/Soleado.jpg";
-      }
-    });
+	constructor(public navCtrl: NavController, public navParams: NavParams, public NotesService: NotesService) {
+		//console.log(this.myDate);
+		this.getDate();
+		NotesService.getFirstElement().valueChanges().subscribe(datosPachon => {
+			console.log(datosPachon);
+			this.p1 = datosPachon[0]['p1'];
+			this.p2 = datosPachon[0]['p2'];
+			this.temperatura = datosPachon[0]['temperatura'];
+		}); 
+	}	
 
-    /*
-      this.Mediciones = NotesService.getFirstElement();
-      console.log('del lado del cliente:',this.Mediciones);
-      console.log('temperatura:',this.Mediciones.tem)
-      if (this.Mediciones.temperatura >= 0 && this.Mediciones.temperatura < 10) {
-        this.pathImage = "img/Lluvioso.jpg";
-      } else if (this.Mediciones.temperatura >= 10 && this.Mediciones.temperatura < 20) {
-        this.pathImage = "img/Nublado.gif";
-      } else if (this.Mediciones.temperatura >= 20) {
-        this.pathImage = "img/Soleado.jpg";
-      }
-    */
-  }
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad CurrentClimatePage');
+	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CurrentClimatePage');
-  }
+	private getDate(){
+		var dt = new Date();
+		var day = dt.getDate() < 10 ? '0'+dt.getDate() : dt.getDate() ;
+		var mes = (dt.getMonth() + 1) < 10 ? '0' + (dt.getMonth()+1)  : (dt.getMonth() + 1)
+		var hora = (dt.getHours()) < 10 ? '0' + (dt.getHours()) : dt.getHours();
+		var minutes = (dt.getMinutes()) < 10 ? '0' + (dt.getMinutes()) : dt.getMinutes();
+		this.myDate = day + '/' + mes + '/' + dt.getFullYear() + ' ' + hora+':'+minutes;
+	}
 
-  private getDate(){
-    var dt = new Date();
-    var day = dt.getDate() < 10 ? '0'+dt.getDate() : dt.getDate() ;
-    var mes = (dt.getMonth() + 1) < 10 ? '0' + (dt.getMonth()+1)  : (dt.getMonth() + 1)
-    this.myDate = day + '/' + mes + '/' + dt.getFullYear();
-    console.log(this.myDate);
-  }
-
-  public goToBack() {
-    this.navCtrl.pop();
-  }
+	public goToBack() {
+		this.navCtrl.pop();
+	}
 
 }

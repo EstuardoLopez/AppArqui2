@@ -23,11 +23,11 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCa9QGHqMYvUE18JslihpUb8hM1KDggslY",
-  authDomain: "fire1-f885b.firebaseapp.com",
-  databaseURL: "https://fire1-f885b.firebaseio.com",
-  storageBucket: "fire1-f885b.appspot.com",
-  messagingSenderId: '830509483188'
+  apiKey: "AIzaSyAkDtYfC8TDTY4io3ov0CYx6tA-aNnPKMU",
+  authDomain: "finala2-29fbd.firebaseapp.com",
+  databaseURL: "https://finala2-29fbd.firebaseio.com",
+  storageBucket: "finala2-29fbd.appspot.com",
+  messagingSenderId: '389972865058'
 };
 
 @NgModule({

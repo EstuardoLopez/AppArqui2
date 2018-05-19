@@ -23,19 +23,16 @@ export class HistoryPage {
       var index = 0;
       nota.forEach(element => {
         index = index + 1;
-        var Mediciones = {index:index, temperatura: null, humedad: null, luminosidad: null, presion: null };
+        var Mediciones = { index: index, p1: null, p2: null, temperatura: null };
         for (var i in element) {
           switch (i) {
-            case "humidity":
-              Mediciones.humedad = element[i];
+            case "p1":
+              Mediciones.p1 = element[i];
               break;
-            case "iluminacion":
-              Mediciones.luminosidad = element[i];
+            case "p2":
+              Mediciones.p2 = element[i];
               break;
-            case "pressure":
-              Mediciones.presion = element[i];
-              break;
-            case "temperature1":
+            case "temperatura":
               Mediciones.temperatura = element[i];
               break;
             default:

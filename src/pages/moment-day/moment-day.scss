@@ -1,3 +1,15 @@
-page-moment-day {
-
+.ios, .md {
+ 
+    page-moment-day {
+ 
+        .scroll-content {
+            background-color: map-get($colors, light);
+        }
+ 
+        ion-card-header {
+            font-weight: bold;
+        }
+ 
+    }
+ 
 }

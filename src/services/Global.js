@@ -1,1 +1,1 @@
-const UsuarioGlobal = "";
+const UsuarioGlobal = "Hola mudno";

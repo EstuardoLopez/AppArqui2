@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from '../../pages/home/home'
 import { NotesService } from '../../services/notes.service';
-import { AlertController } from 'ionic-angular';
+import { Chart } from "chart.js";
 /**
  * Generated class for the NotificationsPage page.
  *
@@ -16,54 +16,62 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'notifications.html',
 })
 export class NotificationsPage {
-  public timeDe = 1; 
-  public isToggled: boolean;
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              public NotesService: NotesService,
-              public alertCtrl: AlertController,) {
-              this.isToggled = true;
+  public datos = [];
+
+  @ViewChild('stockProductos') stockProductos;
+  lineChar: any;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public NotesService: NotesService) {
+
+    this.datos = navParams.get('datos');
+    console.log('Del otro lado ', this.datos);
   }
+
+  public doRefresh(refresher) {
+    refresher.complete();
+  }
+
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NotificationsPage');
+    console.log('ionViewDidLoad StockPage');
+
+    this.lineChar = new Chart(
+      this.stockProductos.nativeElement,
+      {
+        type: 'bar',
+        data: {
+          labels: ["Temperatura"],
+          datasets: [{
+            label: 'Grados Celsius',
+            data: this.datos,
+            backgroundColor: [
+              'rgba(99, 132, 255, 0.7)',
+              'rgba(54, 162, 235, 0.7)'
+            ],
+            borderColor: [
+              'rgba(99,132,255,1)',
+              'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      }
+    );
   }
-  
+
+
   public goToBack() {
-    this.navCtrl.push(HomePage);
-}
-
-public toChange(){
-  if(this.timeDe>0){
-    this.timeDe = this.timeDe *1000;
-    console.log(this.NotesService.setTimeDelay(this.timeDe));
-    this.timeDe = 1;
-    this.showAlert('Exito' , 'Cambio realizado');
-  }else{
-    this.showAlert('Ups ocurrió un error' , 'Ingresa un numero mayor a 0');
+    this.navCtrl.pop();
   }
-}
-
-showAlert(mensaje1, mensaje2) {
-  let alert = this.alertCtrl.create({
-    title: mensaje1,
-    subTitle: mensaje2,
-    buttons: ['Aceptar']
-  });
-  alert.present();
-}
-
-public notify() {
-  if(this.isToggled){
-    console.log(this.isToggled);
-    this.NotesService.setState(this.isToggled);
-    this.showAlert('Cambio de estado', 'Endendiendo el dispositivo');
-  }else{
-    console.log(this.isToggled);
-    this.NotesService.setState(this.isToggled);
-    this.showAlert('Cambio de estado', 'Apagando el dispositivo');
-  }
-
-}
-
 }

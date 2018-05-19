@@ -1,7 +1,7 @@
 <ion-header >
   <ion-navbar color="dark">
     <ion-title>
-      WIFI-TS
+      Dispensadora
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,7 +10,7 @@
   <div padding>
     <button ion-button icon-left round outline color="light" (click)="goToCurrentClimate()" class="button">
       <ion-icon class="bigIcons" name="ios-cloudy-night-outline"></ion-icon>
-      <div class="valueButton">Clima</div>
+      <div class="valueButton">Data Actual</div>
     </button>
 
     <button ion-button icon-left round outline color="light" (click)="goToHistory()" class="button">
@@ -20,23 +20,13 @@
 
     <button ion-button icon-left round outline color="light" (click)="momentDay()" class="button">
       <ion-icon class="bigIcons" name="md-clock"></ion-icon>
-      <div class="valueButton"> Momento del día</div>
-    </button>
-
-    <button ion-button icon-left round outline color="light" (click)="goToNotification()" class="button">
-      <ion-icon class="bigIcons" name="ios-bonfire-outline"></ion-icon>
-      <div class="valueButton">Dispositivo</div>
+      <div class="valueButton"> Graficas </div>
     </button>
 
     <button ion-button icon-left round outline color="light" (click)="goToAbout()" class="button">
       <ion-icon class="bigIcons" name="ios-information-circle-outline"></ion-icon>
       <div class="valueButton">Acerca de</div>
     </button>
-
-    <button ion-button icon-left round outline color="light" (click)="goToExit()" class="button">
-        <ion-icon class="bigIcons" name="md-exit"></ion-icon>
-        <div class="valueButton">Cerrar Sesión</div>
-      </button>
 
   </div>
 </ion-content>

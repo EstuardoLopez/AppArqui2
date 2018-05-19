@@ -22,7 +22,7 @@ export class AboutPage {
     console.log('ionViewDidLoad AboutPage');
   }
   public goToBack() {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.pop();
   }
 
 }

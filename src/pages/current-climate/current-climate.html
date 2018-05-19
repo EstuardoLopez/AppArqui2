@@ -15,25 +15,24 @@
 
 <ion-content padding text-center>
   <ion-card>
-    <img src={{pathImage}} />
+
     <ion-card-content>
       <ion-card-title>
-        Data: {{myDate}}
-      </ion-card-title>
+        {{myDate}}
+			</ion-card-title>
+			<p>
+				Stock Producto #1: {{p1}} unidades
+			</p>
+			<p>
+				Stock Producto #2: {{p2}} unidades
+			</p>
       <p>
-        Temperatura: {{Mediciones.temperatura}} C
+        Temperatura: {{temperatura}} &#186;C
       </p>
-      <p>
-        Humedad: {{Mediciones.humedad}}%
-      </p>
-      <p>
-        Luminosidad: {{Mediciones.luminosidad}} Candelas
-      </p>
-      <p>
-        Presion atmosferica: {{Mediciones.presion}} mili Pascales
-      </p>
-    </ion-card-content>
+      
+	</ion-card-content>
   </ion-card>
+
 
   <button ion-button icon-left round outline color="light" (click)="goToBack()" class="button" >
     <ion-icon class="bigIcons" name="md-exit"></ion-icon>

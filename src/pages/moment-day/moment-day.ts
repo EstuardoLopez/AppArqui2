@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {HomePage} from '../../pages/home/home'
 import { NotesService } from '../../services/notes.service';
+import { Chart } from "chart.js";
 
 /**
  * Generated class for the MomentDayPage page.
@@ -17,55 +17,100 @@ import { NotesService } from '../../services/notes.service';
 })
 
 export class MomentDayPage {
-  public Mediciones = {temperatura:null, humedad:null, luminosidad:null, presion:null};
-  public image = 'img/day.jpg'; 
-  public time = 'día'; 
+	
+	public datos = [];
+	public datosT = [];
+
+	@ViewChild('stockProductos') stockProductos;
+	@ViewChild('divTemperatura') divTemperatura;
+	lineChar: any;
+  
   constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              public NotesService: NotesService) {
-
-                NotesService.getFirstElement().valueChanges().subscribe(medida => {
-                  this.NotesService.hideLoading();
-                  for(var i in medida[0]){
-                    switch (i) {
-                      case "humidity":
-                        this.Mediciones.humedad = medida[0][i];
-                        break;
-                      case "iluminacion":
-                        this.Mediciones.luminosidad = medida[0][i];
-                        break;
-                      case "pressure":
-                        this.Mediciones.presion = medida[0][i];
-                        break;
-                      case "temperature1":
-                        this.Mediciones.temperatura = medida[0][i];
-                        break;        
-                      default:
-                        break;
-                    }
-                  }
-                  if (this.Mediciones.luminosidad >= 0 && this.Mediciones.luminosidad < 10) {
-                    this.time= 'noche'; 
-                    this.image = 'img/nig.jpg'; 
-                  } else if (this.Mediciones.luminosidad >= 10 && this.Mediciones.luminosidad < 50) {
-                    this.time= 'amanecer'; 
-                    this.image = 'img/man.jpeg'; 
-                  } else if (this.Mediciones.luminosidad >= 50) {
-                    this.time= 'dia'; 
-                    this.image = 'img/day.jpg'; 
-                  }
-                  console.log("medidas: ", this.Mediciones);
-                 
-                });
+		public navParams: NavParams,
+		public NotesService: NotesService) {
+		
+		this.datos = navParams.get('datos');
+		this.datosT = navParams.get('datosT');
+		console.log('Del otro lado ',this.datos);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MomentDayPage');
-  }
+	public doRefresh(refresher) {
+		refresher.complete();
+	}
+	
+
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad StockPage');
+
+		this.lineChar = new Chart(
+			this.stockProductos.nativeElement,
+			{
+				type: 'bar',
+				data: {
+					labels: ["Producto #1", "Producto #2"],
+					datasets: [{
+						label: 'Stock de productos Actuales',
+						data: this.datos,
+						backgroundColor: [
+							'rgba(99, 132, 255, 0.7)',
+							'rgba(54, 162, 235, 0.7)'
+						],
+						borderColor: [
+							'rgba(99,132,255,1)',
+							'rgba(54, 162, 235, 1)'
+						],
+						borderWidth: 1
+					}]
+				},
+				options: {
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true
+							}
+						}]
+					}
+				}
+			}
+		);
+
+		this.lineChar = new Chart(
+			this.divTemperatura.nativeElement,
+			{
+				type: 'bar',
+				data: {
+					labels: ["Temperatura"],
+					datasets: [{
+						label: 'Grados Celsius',
+						data: this.datosT,
+						backgroundColor: [
+							'rgba(99, 132, 255, 0.7)',
+							'rgba(54, 162, 235, 0.7)'
+						],
+						borderColor: [
+							'rgba(99,132,255,1)',
+							'rgba(54, 162, 235, 1)'
+						],
+						borderWidth: 1
+					}]
+				},
+				options: {
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true
+							}
+						}]
+					}
+				}
+			}
+		);
+
+	}
 
 
   public goToBack() {
-      this.navCtrl.push(HomePage);
+      this.navCtrl.pop();
   }
 
 
