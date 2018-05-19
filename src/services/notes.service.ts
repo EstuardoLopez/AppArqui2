@@ -125,5 +125,14 @@ export class NotesService {
         this.myDate = day + '/' + mes + '/' + dt.getFullYear() + ' ' + hora + ':' + minutes;
     }
 
+    /***************************************************despensa */
 
+    public editEnergy(note){
+        this.afDB.database.ref('energia').set(note);
+    }
+
+    public getEnergy(){
+        return this.afDB.list<Item>('/energia', ref => ref.limitToLast(1));
+    }
+   
 }

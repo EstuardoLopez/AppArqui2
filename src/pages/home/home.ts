@@ -10,6 +10,7 @@ import {LoginPage} from '../login/login';
 import {SingletonService} from '../../services/SingletonService';
 import { MomentDayPage } from '../moment-day/moment-day';
 import { HistoryPage } from '../history/history';
+import { InfoNutricionalPage } from "../info-nutricional/info-nutricional";
 
 @Component({
   selector: 'page-home',
@@ -90,6 +91,10 @@ export class HomePage {
 
   public goToCurrentClimate() {
     this.navCtrl.push(CurrentClimatePage);
+  }
+  
+  public goToNutricional() {
+    this.navCtrl.push(InfoNutricionalPage);
   }
   
   public goToExit() {

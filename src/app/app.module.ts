@@ -17,6 +17,8 @@ import {LoginPage} from '../pages/login/login'
 import {MomentDayPage} from '../pages/moment-day/moment-day'
 import { HistoryPage } from "../pages/history/history";
 
+import { InfoNutricionalPage } from "../pages/info-nutricional/info-nutricional";
+
 //librerias para firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -41,7 +43,8 @@ export const firebaseConfig = {
     NotificationsPage,
     ReportesPage,
     CurrentClimatePage,
-    HistoryPage
+    HistoryPage,
+    InfoNutricionalPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ export const firebaseConfig = {
     NotificationsPage,
     ReportesPage,
     CurrentClimatePage,
-    HistoryPage
+    HistoryPage,
+    InfoNutricionalPage
   ],
   providers: [
     StatusBar,
