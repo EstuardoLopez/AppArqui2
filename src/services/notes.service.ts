@@ -6,6 +6,7 @@ import { AngularFireDatabase } from "angularfire2/database/database";
 export class NotesService {
     notes = [];
     loader = null;
+    myDate = '';
     
     Mediciones = { temperatura: null, humedad: null, luminosidad: null, presion: null };
     constructor(public toastCtrl: ToastController, 
@@ -23,7 +24,7 @@ export class NotesService {
 
     public getFirstElement() {
        // this.showLoading();
-        return this.afDB.list<Item>('cantidad/', ref => ref.limitToLast(1));
+        return this.afDB.list<Item>('cantidad/', ref => ref.limitToLast(2));
     }
 
     public getNote(id){
@@ -101,6 +102,28 @@ export class NotesService {
         return this.afDB.list<Item>('datosPachon/');
      }
 
+
+    public createNodo(nodo) {
+        let rama = 'notifp' + nodo;
+        this.getDate();
+        this.afDB.database.ref(rama).set({send:true,email:'estuardogat@gmail.com', date:this.myDate});
+        //this.loader.dismiss();
+    }
+
+    public deleteNodo(nodo) {
+        let rama = 'notifp' + nodo;
+        this.afDB.database.ref(rama).remove();
+        //this.loader.dismiss();
+    }
+
+    private getDate() {
+        var dt = new Date();
+        var day = dt.getDate() < 10 ? '0' + dt.getDate() : dt.getDate();
+        var mes = (dt.getMonth() + 1) < 10 ? '0' + (dt.getMonth() + 1) : (dt.getMonth() + 1)
+        var hora = (dt.getHours()) < 10 ? '0' + (dt.getHours()) : dt.getHours();
+        var minutes = (dt.getMinutes()) < 10 ? '0' + (dt.getMinutes()) : dt.getMinutes();
+        this.myDate = day + '/' + mes + '/' + dt.getFullYear() + ' ' + hora + ':' + minutes;
+    }
 
 
 }

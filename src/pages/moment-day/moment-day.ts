@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NotesService } from '../../services/notes.service';
 import { Chart } from "chart.js";
+import {HomePage } from "../home/home"
 
 /**
  * Generated class for the MomentDayPage page.
@@ -20,6 +21,7 @@ export class MomentDayPage {
 	
 	public datos = [];
 	public datosT = [];
+	public datosAnt = [];
 
 	@ViewChild('stockProductos') stockProductos;
 	@ViewChild('divTemperatura') divTemperatura;
@@ -31,7 +33,38 @@ export class MomentDayPage {
 		
 		this.datos = navParams.get('datos');
 		this.datosT = navParams.get('datosT');
-		console.log('Del otro lado ',this.datos);
+		this.datosAnt = navParams.get('datosAnt');
+		console.log('datos Anterores: ', this.datosAnt);
+		console.log('datos Actuales:', this.datos);
+		
+		if(this.datosAnt != null){
+			if(this.datosAnt[0] !=0 && this.datos[0]==0){
+				//escribo nodito #1
+				console.log('Escribo nodo1');
+				NotesService.createNodo(1);
+				//NotesService.deleteNodo(1);
+			}
+
+			if (this.datosAnt[1] != 0 && this.datos[1] == 0) {
+				//escribo nodito #1
+				console.log('Escribo nodo2');
+				NotesService.createNodo(2);
+				//NotesService.deleteNodo(2);
+			}
+			
+			if (this.datosAnt[0] == 0 && this.datos[0] != 0) {
+				//escribo nodito #1
+				console.log('Borro nodo1');
+				NotesService.deleteNodo(1);
+			}
+
+			if (this.datosAnt[1] == 0 && this.datos[1] != 0) {
+				//escribo nodito #1
+				console.log('Borro nodo2');
+				NotesService.deleteNodo(2);
+			}
+			
+		}  
   }
 
 	public doRefresh(refresher) {
@@ -49,7 +82,7 @@ export class MomentDayPage {
 				data: {
 					labels: ["Producto #1", "Producto #2"],
 					datasets: [{
-						label: 'Stock de productos Actuales',
+						label: 'Stock: ',
 						data: this.datos,
 						backgroundColor: [
 							'rgba(99, 132, 255, 0.7)',
@@ -110,7 +143,9 @@ export class MomentDayPage {
 
 
   public goToBack() {
-      this.navCtrl.pop();
+	  //HomePage
+	  this.navCtrl.setRoot(HomePage);
+	  this.navCtrl.popToRoot();
   }
 
 

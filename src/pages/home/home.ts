@@ -38,13 +38,31 @@ export class HomePage {
   
   public momentDay(){
     let datos = [];
+    let datosAnt = [];
     let datosT =[];
+    let contador = 0;
     this.NotesService.getFirstElement().valueChanges().subscribe(medida => {
-      datos.push(Number(medida[0]["p1"]));
-      datos.push(Number(medida[0]["p2"]));
-      datosT.push(Number(medida[0]["temperatura"]));
-      console.log(datos);     
-		  this.navCtrl.push(MomentDayPage, { datos: datos, datosT:datosT});
+      console.log(medida);
+      if(medida.length == 1){
+        datos.push(Number(medida[0]["p1"]));
+        datos.push(Number(medida[0]["p2"]));
+        datosT.push(Number(medida[0]["temperatura"]));
+        datosAnt = null;
+      }else{
+        datos.push(Number(medida[1]["p1"]));
+        datos.push(Number(medida[1]["p2"]));
+        datosT.push(Number(medida[1]["temperatura"]));
+        datosAnt.push(Number(medida[0]["p1"]));
+        datosAnt.push(Number(medida[0]["p2"]));
+        console.log(datos);
+        console.log(datosAnt);
+      }
+      
+      this.navCtrl.push(MomentDayPage, { datos: datos, datosT: datosT, datosAnt: datosAnt })
+      contador++;
+      datos = [];
+       datosAnt = [];
+       datosT = [];
     });    
   }
 
